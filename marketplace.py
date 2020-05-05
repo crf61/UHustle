@@ -25,12 +25,15 @@ if __name__ == "__main__":
     selected_schools = []
     selected_categories = []
 
+    Name = input("Enter your name: ")
+    School = input("Enter your school: ")
+
     while True:
-            selected_school = input("Please enter a school name (Available Schools are as follows: Georgetown Univeristy, George Washington University, and American University): ") 
-            if selected_school == "DONE":
+            selected_category = input("Please enter a category: ") 
+            if selected_category == "DONE":
                     break
             else: 
-                    selected_schools.append(selected_school) 
+                    selected_categories.append(selected_category) 
 
     # print(selected_ids)
 
@@ -49,22 +52,23 @@ if __name__ == "__main__":
     sum_total = tax + total_price
 
     def lookup_listing_by_school(selected_school):
-        matching_listings = [p for p in listings if str(p["school"]) == str(selected_school)]
-        return matching_listings[0]
+        matching_listings = [p for p in listings if str(p["id"]) == str(selected_id)]
+        return matching_products[0]
 
     price = 0
 
     print("----------------------------------------")
-    print("UHustle: We Make Hustling Easier")
+    print("WELCOME TO UHUSTLE,", Name, "!!")
+    print("WE MAKE HUSTLING EASIER.")
     print("----------------------------------------")
     print("Website: TheUHustle.com")
     print ("Date:", x)
     print("----------------------------------------")
-    print("Search Engine Results: ")
+    print("Here are the search engine results at", School, ":")
     for selected_listing in selected_listings:
         listing = lookup_listing_by_school(selected_school)
         price += listing["price"]
-        price_usd = ' (${0:.2f})'.format(listing["price"])
+        price_usd = ' (${0:.2f})'.format(product["price"])
         print(" + " + listing["name"] + price_usd)
     #Christy was unable to figure this out
     print("----------------------------------------")
