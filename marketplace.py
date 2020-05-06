@@ -76,25 +76,24 @@ if __name__ == "__main__":
 
     price = 0
 
-    print("**************************************************")
+    print("__________________________________________________")
     print("WELCOME TO UHUSTLE,", First_Name, "!!")
     print("WE MAKE HUSTLING EASIER.")
     print("Website: TheUHustle.com")
     print ("Date:", x)
-    print("**************************************************")
+    print("__________________________________________________")
     print("Here are the search engine results at", selected_school, ":")
     for selected_category in selected_categories:
         listing = lookup_listing_by_category(selected_category)
         price += listing["price"]
         price_usd = ' (${0:.2f})'.format(listing["price"])
         print(" + " + listing["name"] + price_usd)
-    print("----------------------------------------")
+    print("*************************************************")
     print (f"Amount of purchase: {to_usd(total_price)}")
 
     print (f"plus MA Sales Tax (6.25%): {to_usd(tax)}")
 
     print (f"The total price is:, {to_usd(sum_total)}")
-    print("----------------------------------------")
-
-    print(f"Thank you for your purchase. Hustle Hard!")
+    print("__________________________________________________")
+    print(f"Thank you for your purchase. Have a nice say and Hustle Hard!")
 
