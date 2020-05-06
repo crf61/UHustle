@@ -3,7 +3,7 @@
 # This is a search engine. 
 # This is to determine what products are available to purchase at a certain school location. 
 # Right now there are three schools you can choose from; Georgetown University, George Washington University, or American University
-# The user can select the school and category they are lookg
+# The user can select the school and category they are looking for Food and Drink, Entertainment, Media, and Beauty.
 
 def to_usd(my_price):
     return f"${my_price:,.2f}"
@@ -11,9 +11,24 @@ def to_usd(my_price):
 if __name__ == "__main__":
     listings = [
         {"id":1, "name": "DJ Service", "school": "Georgetown University", "category": "Entertainment", "Product or Service": "Service", "price": 12.50},
-        {"id":2, "name": "StrawberryCheesecake", "school": "George Washington University", "category": "Food/Drink", "Product or Service": "Product", "price": 9.99},
+        {"id":2, "name": "Strawberry Cheesecake", "school": "George Washington University", "category": "Food and Drink", "Product or Service": "Product", "price": 9.99},
         {"id":3, "name": "Photoshoot Session", "school": "American University", "category": "Media", "Product or Service": "Service", "price": 15.00},
-
+        {"id":4, "name": "Party Planner", "school": "Georgetown University", "category": "Entertainment", "Product or Service": "Service", "price": 7.50},
+        {"id":5, "name": "Eyebrow Waxing", "school": "George Washington University", "category": "Beauty", "Product or Service": "Service", "price": 11.99},
+        {"id":6, "name": "Books", "school": "American University", "category": "Entertainment", "Product or Service": "Product", "price": 12.10},
+        {"id":7, "name": "Fried Conch Dinner", "school": "Georgetown University", "category": "Food/Drink", "Product or Service": "Product", "price": 4.99},
+        {"id":8, "name": "Graphic Design: Logo", "school": "American University", "category": "Media", "Product or Service": "Service", "price": 3.00},
+        {"id":9, "name": "Videography Session", "school": "George Washington University", "category": "Media", "Product or Service": "Service", "price": 12.00},
+        {"id":10, "name": "Wash and Set", "school": "American University", "category": "Beauty", "Product or Service": "Service", "price": 30.00},
+        {"id":11, "name": "Dance Performance", "school": "George Washington University", "category": "Entertainment", "Product or Service": "Service", "price": 23.99},
+        {"id":12, "name": "Trail Mix", "school": "American University", "category": "Food and Drink", "Product or Service": "Product", "price": 10.45},
+        {"id":13, "name": "Private Chef/Caterer", "school": "George Washington University", "category": "Food and Drink", "Product or Service": "Service", "price": 17.89},
+        {"id":14, "name": "Model Headshots", "school": "Georgetown University", "category": "Media", "Product or Service": "Service", "price": 5.00},
+        {"id":15, "name": "Band Performance", "school": "George Washington University", "category": "Entertainment", "Product or Service": "Service", "price": 9.49},
+        {"id":16, "name": "Cotton Candy", "school": "American University", "category": "Food and Drink", "Product or Service": "Product", "price": 5.30},
+        {"id":17, "name": "Tresure Hunt Set Up", "school": "Georgetown University", "category": "Entertainment", "Product or Service": "Service", "price": 2.99},
+        {"id":18, "name": "Facial", "school": "Georgetown University", "category": "Beauty", "Product or Service": "Service", "price": 74.99},
+        
         
     ] # based on listing from UHustle's beta test in 2019
 
@@ -26,16 +41,15 @@ if __name__ == "__main__":
     selected_categories = []
 
     Name = input("Enter your name: ")
-    School = input("Enter your school: ")
+    selected_school = input("Choose from the available schools: Georgetown University, George Washington University, and American University: ")
 
     while True:
-            selected_category = input("Please enter a category: ") 
+            selected_category = input("Choose from the available categories: Food and Drink, Entertainment, Media, and Beauty: ") 
             if selected_category == "DONE":
                     break
             else: 
                     selected_categories.append(selected_category) 
 
-    # print(selected_ids)
 
 
     import datetime
@@ -51,9 +65,9 @@ if __name__ == "__main__":
     tax = total_price * taxrate
     sum_total = tax + total_price
 
-    def lookup_listing_by_school(selected_school):
-        matching_listings = [p for p in listings if str(p["id"]) == str(selected_id)]
-        return matching_products[0]
+    def lookup_listing_by_category(selected_category):
+        matching_listings = [p for p in listings if str(p["category"]) == str(selected_category)]
+        return matching_listings[0]
 
     price = 0
 
@@ -64,11 +78,11 @@ if __name__ == "__main__":
     print("Website: TheUHustle.com")
     print ("Date:", x)
     print("----------------------------------------")
-    print("Here are the search engine results at", School, ":")
-    for selected_listing in selected_listings:
-        listing = lookup_listing_by_school(selected_school)
+    print("Here are the search engine results at", selected_school, ":")
+    for selected_category in selected_categories:
+        listing = lookup_listing_by_category(selected_category)
         price += listing["price"]
-        price_usd = ' (${0:.2f})'.format(product["price"])
+        price_usd = ' (${0:.2f})'.format(listing["price"])
         print(" + " + listing["name"] + price_usd)
     #Christy was unable to figure this out
     print("----------------------------------------")
