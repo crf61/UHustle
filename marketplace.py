@@ -60,7 +60,7 @@ if __name__ == "__main__":
     import datetime
     x = datetime.datetime.now ()
 
-    for selected_names in selected_name:
+    for selected_name in selected_names:
                 matching_listings = [p for p in listings if str(p["name"]) == str(selected_name)]
                 matching_listing = matching_listings[0]
                 total_price = total_price + matching_listing["price"]
@@ -76,13 +76,12 @@ if __name__ == "__main__":
 
     price = 0
 
-    print("----------------------------------------")
-    print("WELCOME TO UHUSTLE,", Name, "!!")
+    print("**************************************************")
+    print("WELCOME TO UHUSTLE,", First_Name, "!!")
     print("WE MAKE HUSTLING EASIER.")
-    print("----------------------------------------")
     print("Website: TheUHustle.com")
     print ("Date:", x)
-    print("----------------------------------------")
+    print("**************************************************")
     print("Here are the search engine results at", selected_school, ":")
     for selected_category in selected_categories:
         listing = lookup_listing_by_category(selected_category)
