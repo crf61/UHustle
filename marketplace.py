@@ -28,17 +28,7 @@ if __name__ == "__main__":
         {"id":17, "name": "Cotton Candy", "school": "American University", "category": "Food and Drink", "Product or Service": "Product", "price": 5.30},
         {"id":18, "name": "Tresure Hunt Set Up", "school": "Georgetown University", "category": "Entertainment", "Product or Service": "Service", "price": 2.99},
         
-        ] # based on listing from UHustle's beta test in 2019
-
-    Georgetown_listings = [
-        {"id":1, "name": "DJ Service", "school": "Georgetown University", "category": "Entertainment", "Product or Service": "Service", "price": 12.50},
-        {"id":5, "name": "Party Planner", "school": "Georgetown University", "category": "Entertainment", "Product or Service": "Service", "price": 7.50},
-        {"id":8, "name": "Fried Conch Dinner", "school": "Georgetown University", "category": "Food/Drink", "Product or Service": "Product", "price": 4.99},
-        {"id":15, "name": "Model Headshots", "school": "Georgetown University", "category": "Media", "Product or Service": "Service", "price": 5.00},
-        {"id":18, "name": "Tresure Hunt Set Up", "school": "Georgetown University", "category": "Entertainment", "Product or Service": "Service", "price": 2.99},
-        {"id":19, "name": "Facial", "school": "Georgetown University", "category": "Beauty", "Product or Service": "Service", "price": 74.99},
-
-    ]
+    ] # based on listing from UHustle's beta test in 2019
 
    
     #
@@ -48,20 +38,17 @@ if __name__ == "__main__":
     selected_schools = []
     selected_categories = []
     selected_ids = []
+   
 
     Name = input("Enter your name: ")
-  
-    while True:
-            selected_school = input("Choose from the available schools: Georgetown University, George Washington University, and American University: ") 
-            if selected_school == "Georgetown University":
-                matching_schools = [p for p in Georgetown_listings if str(p["school"]) == "Georgetown University"]
-                matching_school = matching_schools[0]
-                print("Georgetown Listings: " + matching_school["name"] + " " + str(matching_school["id"]))
-            if selected_school == "DONE":
-                    break
-            else: 
-                    selected_schools.append(selected_school) 
-
+    selected_school = input("Choose from the available schools: Georgetown University, George Washington University, and American University: ")
+    
+    def listings_from(school):
+        return [listings for listings in listings if listings["school"] == school]
+        
+    if selected_school == "Georgetown University":
+        print(listings_from("Georgetown University"))
+            
     for selected_school in selected_schools:
                 matching_selections = [p for p in listings if str(p["school"]) == str(selected_school)]
                 matching_selection = matching_selections[0]
