@@ -1,7 +1,4 @@
-from my_script import listings_from(school)
-
-if __name__ == "__main__":
-    listings = [
+listings = [
         {"id":1, "name": "DJ Service", "school": "Georgetown University", "category": "Entertainment", "Product or Service": "Service", "price": 12.50},
         {"id":2, "name": "Strawberry Cheesecake", "school": "Georgetown University", "category": "Food and Drink", "Product or Service": "Product", "price": 9.99},
         {"id":3, "name": "Peach Candy", "school": "George Washington University", "category": "Food and Drink", "Product or Service": "Product", "price": 9.99},
@@ -23,6 +20,12 @@ if __name__ == "__main__":
         
     ] 
 
-def test_listing_from(school):
-    result = listings_from("Georgetown University")
-    assert result == ['DJ Service', 'Strawberry Cheesecake', 'Party Planner', 'Fried Conch Dinner', 'Model Headshots', 'Tresure Hunt Set Up']
+def listings_from(school):
+        return [listings["name"] for listings in listings if listings["school"] == school]
+
+if __name__ == "__main__":
+    input_school = input("Choose from the available schools: Georgetown University, George Washington University, and American University: ")
+    print("You Chose: ", input_school)
+        
+    output_school = listings_from(input_school)
+    print("The Listings Are: ", output_school)
