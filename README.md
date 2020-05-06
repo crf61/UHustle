@@ -23,18 +23,6 @@ In order for the program to tell you what items are available. The user (you) ne
 
     conda activate shopping-env
 
-    #Install pytest so the script is be automatically tested
-    
-    pip install pytest
-
-    #Run pytest
-
-    Type "pytest" to run the test.
-    
-    #Run the python script, use the code below
-
-    python marketplace.py
-
     #Inputs
 
     You will first be asked to enter Your Name 
@@ -47,7 +35,19 @@ In order for the program to tell you what items are available. The user (you) ne
 
     When you are doing choosing, type DONE and the system will check you out.
 
-# Testing the Scipt
+# Testing the Script
+    
+    #Install pytest so the script is be automatically tested
+    
+    pip install pytest
+
+    #Run pytest
+
+    Type "pytest" to run the test.
+    
+    #Run the python script, use the code below
+
+    python marketplace.py
 
 # Why are there only three school available?
 Georgetown University, George Washington University, and American University are the starter schools for UHustle's soft launch.
