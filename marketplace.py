@@ -28,45 +28,40 @@ if __name__ == "__main__":
         {"id":17, "name": "Cotton Candy", "school": "American University", "category": "Food and Drink", "Product or Service": "Product", "price": 5.30},
         {"id":18, "name": "Tresure Hunt Set Up", "school": "Georgetown University", "category": "Entertainment", "Product or Service": "Service", "price": 2.99},
         
-    ] # based on listing from UHustle's beta test in 2019
-
-   
-    #
-    # Info capture / Input
-    # 
+    ] 
     total_price = 0
     selected_schools = []
     selected_categories = []
-    selected_ids = []
+    selected_names = []
    
 
-    Name = input("Enter your name: ")
+    First_Name = input("Enter your name: ")
     selected_school = input("Choose from the available schools: Georgetown University, George Washington University, and American University: ")
     
     def listings_from(school):
-        return [listings for listings in listings if listings["school"] == school]
+        return [listings["name"] for listings in listings if listings["school"] == school]
         
     if selected_school == "Georgetown University":
-        print(listings_from("Georgetown University"))
+        print("The Available Listings Are: ", listings_from("Georgetown University"))
+
+    if selected_school == "George Washington University":
+        print("The Available Listings Are: ", listings_from("George Washington University"))
+
+    if selected_school == "American University":
+        print("The Available Listings Are: ", listings_from("American University"))
             
-    for selected_school in selected_schools:
-                matching_selections = [p for p in listings if str(p["school"]) == str(selected_school)]
-                matching_selection = matching_selections[0]
-                print("SELECTED LISTINGS: " + matching_selection["name"] + " || ID Number:" + str(matching_selection["id"]))  
-   
     while True:
-            selected_id = input("Choose from the available listings from the ids listed above: ") 
-            if selected_id == "DONE":
+            selected_name = input("Choose which listings you would like to purchase from the products listed above. Write DONE when complete. ") 
+            if selected_name == "DONE":
                     break
             else: 
-                    selected_ids.append(selected_id) 
-
+                    selected_names.append(selected_name) 
 
     import datetime
     x = datetime.datetime.now ()
 
-    for selected_id in selected_ids:
-                matching_listings = [p for p in listings if str(p["id"]) == str(selected_id)]
+    for selected_names in selected_name:
+                matching_listings = [p for p in listings if str(p["name"]) == str(selected_name)]
                 matching_listing = matching_listings[0]
                 total_price = total_price + matching_listing["price"]
                 print("SELECTED LISTINGS: " + matching_listing["name"] + " " + str(matching_listing["price"]))  
@@ -94,10 +89,8 @@ if __name__ == "__main__":
         price += listing["price"]
         price_usd = ' (${0:.2f})'.format(listing["price"])
         print(" + " + listing["name"] + price_usd)
-    #Christy was unable to figure this out
     print("----------------------------------------")
     print (f"Amount of purchase: {to_usd(total_price)}")
-    #calculate tax
 
     print (f"plus MA Sales Tax (6.25%): {to_usd(tax)}")
 
@@ -106,11 +99,3 @@ if __name__ == "__main__":
 
     print(f"Thank you for your purchase. Hustle Hard!")
 
-    #A grocery store name of your choice
-    #A grocery store phone number and/or website URL and/or address of choice
-    #The date and time of the beginning of the checkout process, formatted in a human-friendly way (e.g. 2020-02-07 03:54 PM)
-    #The name and price of each shopping cart item, price being formatted as US dollars and cents (e.g. $3.50, etc.)
-    #The total cost of all shopping cart items (i.e. the "subtotal"), formatted as US dollars and cents (e.g. $19.47), calculated as the sum of their prices
-    #The amount of tax owed (e.g. $1.70), calculated by multiplying the total cost by a New York City sales tax rate of 8.75% (for the purposes of this project, groceries are not exempt from sales tax)
-    #The total amount owed, formatted as US dollars and cents (e.g. $21.17), calculated by adding together the amount of tax owed plus the total cost of all shopping cart items
-    #A friendly message thanking the customer and/or encouraging the customer to shop again
