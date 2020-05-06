@@ -3,7 +3,6 @@
 # This is a search engine. 
 # This is to determine what products are available to purchase at a certain school location. 
 # Right now there are three schools you can choose from; Georgetown University, George Washington University, or American University
-# The user can select the school and category they are looking for Food and Drink, Entertainment, Media, and Beauty.
 
 def to_usd(my_price):
     return f"${my_price:,.2f}"
@@ -11,6 +10,7 @@ def to_usd(my_price):
 if __name__ == "__main__":
     listings = [
         {"id":1, "name": "DJ Service", "school": "Georgetown University", "category": "Entertainment", "Product or Service": "Service", "price": 12.50},
+        {"id":2, "name": "StrawberryCheesecake", "school": "George Washington University", "category": "Food/Drink", "Product or Service": "Product", "price": 9.99},
         {"id":2, "name": "Strawberry Cheesecake", "school": "George Washington University", "category": "Food and Drink", "Product or Service": "Product", "price": 9.99},
         {"id":3, "name": "Photoshoot Session", "school": "American University", "category": "Media", "Product or Service": "Service", "price": 15.00},
         {"id":4, "name": "Party Planner", "school": "Georgetown University", "category": "Entertainment", "Product or Service": "Service", "price": 7.50},
@@ -28,9 +28,8 @@ if __name__ == "__main__":
         {"id":16, "name": "Cotton Candy", "school": "American University", "category": "Food and Drink", "Product or Service": "Product", "price": 5.30},
         {"id":17, "name": "Tresure Hunt Set Up", "school": "Georgetown University", "category": "Entertainment", "Product or Service": "Service", "price": 2.99},
         {"id":18, "name": "Facial", "school": "Georgetown University", "category": "Beauty", "Product or Service": "Service", "price": 74.99},
-        
-        
-    ] # based on listing from UHustle's beta test in 2019
+
+        ] # based on listing from UHustle's beta test in 2019
 
    
     #
@@ -55,8 +54,8 @@ if __name__ == "__main__":
     import datetime
     x = datetime.datetime.now ()
 
-    for selected_school in selected_schools:
-                matching_listings = [p for p in listings if str(p["school"]) == str(selected_school)]
+    for selected_category in selected_categories:
+                matching_listings = [p for p in listings if str(p["category"]) == str(selected_category)]
                 matching_listing = matching_listings[0]
                 total_price = total_price + matching_listing["price"]
                 print("SELECTED LISTINGS: " + matching_listing["name"] + " " + str(matching_listing["price"]))  
