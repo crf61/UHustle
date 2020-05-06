@@ -88,6 +88,7 @@ if __name__ == "__main__":
         price += listing["price"]
         price_usd = ' (${0:.2f})'.format(listing["price"])
         print(" + " + listing["name"] + price_usd)
+    print("SELECTED LISTINGS: " + matching_listing["name"] + " " + str(matching_listing["price"]))
     print("*************************************************")
     print (f"Amount of purchase: {to_usd(total_price)}")
 
