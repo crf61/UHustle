@@ -52,7 +52,7 @@ if __name__ == "__main__":
     for selected_school in selected_schools:
                 matching_selections = [p for p in listings if str(p["school"]) == str(selected_school)]
                 matching_selection = matching_selections[0]
-                print("SELECTED LISTINGS: " + matching_selection["name"] + " " + str(matching_selection["id"]))  
+                print("SELECTED LISTINGS: " + matching_selection["name"] + " || ID Number:" + str(matching_selection["id"]))  
    
     while True:
             selected_id = input("Choose from the available listings from the ids listed above: ") 
