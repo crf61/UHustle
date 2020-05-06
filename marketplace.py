@@ -40,15 +40,25 @@ if __name__ == "__main__":
     selected_categories = []
 
     Name = input("Enter your name: ")
-    selected_school = input("Choose from the available schools: Georgetown University, George Washington University, and American University: ")
-
+  
     while True:
-            selected_category = input("Choose from the available categories: Food and Drink, Entertainment, Media, and Beauty: ") 
+            selected_school = input("Choose from the available schools: Georgetown University, George Washington University, and American University: ") 
+            if selected_school == "DONE":
+                    break
+            else: 
+                    selected_schools.append(selected_school) 
+
+    for selected_school in selected_schools:
+                matching_selections = [p for p in listings if str(p["school"]) == str(selected_school)]
+                matching_selection = matching_selections[0]
+                print("SELECTED LISTINGS: " + matching_selection["name"] + " " + str(matching_selection["id"]))  
+   
+    while True:
+            selected_category = input("Choose from the available listings from the ids listed above: ") 
             if selected_category == "DONE":
                     break
             else: 
                     selected_categories.append(selected_category) 
-
 
 
     import datetime
@@ -93,7 +103,7 @@ if __name__ == "__main__":
     print (f"The total price is:, {to_usd(sum_total)}")
     print("----------------------------------------")
 
-    print(f"Thank you for shopping at Christy's Bodega. Have a wonderful day. I love you")
+    print(f"Thank you for your purchase. Hustle Hard!")
 
     #A grocery store name of your choice
     #A grocery store phone number and/or website URL and/or address of choice
